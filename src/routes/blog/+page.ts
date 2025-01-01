@@ -7,10 +7,16 @@ export async function load() {
 	}>('/src/content/*.md');
 	const iterablePostFiles = Object.entries(allPostFiles);
 
+	const allTags = new Array<string>();
+
 	const allPosts = await Promise.all(
 		iterablePostFiles.map(async ([path, resolver]) => {
 			const { metadata } = await resolver();
 			const postPath = path.slice(13, -3);
+
+			metadata.tags.forEach((tag: string) => {
+				if (!allTags.includes(tag)) allTags.push(tag);
+			});
 
 			return {
 				meta: metadata,
@@ -19,5 +25,7 @@ export async function load() {
 		})
 	);
 
-	return { allPosts };
+	allPosts.sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
+
+	return { allPosts, allTags };
 }

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Button from './Button.svelte';
+
 	type BreadcrumbsProps = {
 		breadcrumbs: {
 			label: string;
@@ -14,12 +16,12 @@
 >
 	<ul class="inline-flex gap-4">
 		{#each breadcrumbs as crumb, index}
-			<li class="inline-flex gap-4">
+			<li class="inline-flex gap-4 items-center">
 				{#if index !== 0}
 					<p class={!crumb.href ? 'text-bittersweet' : undefined}>{'/'}</p>
 				{/if}
 				{#if crumb.href}
-					<a href={crumb.href}>{crumb.label}</a>
+					<a href={crumb.href}><Button small>{crumb.label}</Button></a>
 				{:else}
 					<p class="text-bittersweet">{crumb.label}</p>
 				{/if}
