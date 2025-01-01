@@ -27,6 +27,10 @@
 	};
 </script>
 
+<svelte:head>
+    <title>Elliot Jordan Kemp | Blog</title>
+</svelte:head>
+
 <div class="flex w-full flex-col items-center">
 	<Breadcrumbs breadcrumbs={[{ href: '/', label: 'Home' }, { label: 'Blog' }]} />
 	<div class="flex w-full max-w-xl flex-col items-start">

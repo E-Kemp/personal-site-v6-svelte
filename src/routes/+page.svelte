@@ -3,6 +3,10 @@
 	import Button from '../components/Button.svelte';
 </script>
 
+<svelte:head>
+    <title>Elliot Jordan Kemp</title>
+</svelte:head>
+
 <div class="mt-20 flex w-full flex-col items-center gap-20">
 	<div
 		class={'flex h-16 w-full flex-row items-center justify-center gap-10 overflow-visible bg-gunmetal p-4 text-2xl text-beige'}

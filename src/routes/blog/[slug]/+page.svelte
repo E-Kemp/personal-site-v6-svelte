@@ -5,6 +5,10 @@
 	let { data }: { data: PageData } = $props();
 </script>
 
+<svelte:head>
+    <title>Elliot Jordan Kemp | {data.title}</title>
+</svelte:head>
+
 <article class="w-full flex flex-col items-center gap-6">
 	<Breadcrumbs
 		breadcrumbs={[
